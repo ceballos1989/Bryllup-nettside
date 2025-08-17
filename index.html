@@ -158,7 +158,7 @@
       <ul>
         <li>Standardrom:  2.195 / 2.395 kr (9 stk)</li>
         <li>Dobbeltrom med utsikt mot vannet: 2.695 / 2.895 kr (33stk)</li>
-        <li>Mini suite: 2.995 / 3.195 kr(1 stk)</li>
+        <li>Mini suite: 2.995 / 3.195 kr (1 stk)</li>
         <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
       </ul>
     </div>
@@ -215,6 +215,24 @@
         width: 200,
         height: 200
       });
+
+      
+      function updatePrice() {
+        const romSelect = document.getElementById("romtype");
+        const oppholdSelect = document.getElementById("opphold");
+        const totalpris = document.getElementById("totalpris");
+
+        const romPrice = parseInt(romSelect.options[romSelect.selectedIndex].dataset.price || 0);
+        const nights = parseInt(oppholdSelect.options[oppholdSelect.selectedIndex].dataset.nights || 0);
+
+        if (romPrice > 0 && nights > 0) {
+          totalpris.textContent = `Totalpris: ${romPrice * nights} kr`;
+        } else if (nights === 0) {
+          totalpris.textContent = "Ingen overnatting valgt";
+        } else {
+          totalpris.textContent = "Velg romtype og antall netter for å se totalpris";
+        }
+      }
     </script>
   </section>
 
