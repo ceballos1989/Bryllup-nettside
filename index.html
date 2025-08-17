@@ -142,16 +142,27 @@
   <section class="rsvp">
     <h2>RSVP</h2>
     <form action="https://formspree.io/f/xzzvqrve" method="POST">
-      <input type="text" name="navn" placeholder="Ditt navn" required>
+      <input type="text" name="navn" placeholder="Navn på gjest(er)" required>
       <input type="email" name="epost" placeholder="Din e-post" required>
       <textarea name="beskjed" placeholder="Allergier eller annen info"></textarea>
       <button type="submit">Send svar</button>
     </form>
   </section>
 
-    <section class="Hotell">
+      <section class="Hotell">
     <h2>Reserver hotellrom</h2>
     <p>Her kan du sende forespørsel om å reservere hotellrom til oss:</p>
+
+    <div class="prices">
+      <h3>Priser per natt</h3>
+      <ul>
+        <li>Standardrom:  2.195 / 2.395 kr (9 stk)</li>
+        <li>Dobbeltrom med utsikt mot vannet: 2.695 / 2.895 kr (33stk)</li>
+        <li>Mini suite: 2.995 / 3.195 kr(1 stk)</li>
+        <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
+      </ul>
+    </div>
+
     <form action="https://formspree.io/f/xknkrwqr" method="POST">
       <input type="text" name="navn" placeholder="Navn på overnattende gjester" required>
       <input type="email" name="epost" placeholder="Din e-post" required>
@@ -159,18 +170,27 @@
       <input type="number" name="antall_personer" placeholder="Antall personer" required>
 
       <label for="romtype"><b>Romtype</b></label>
-      <select name="romtype" id="romtype" required>
-        <option value="Standardrom">Standardrom</option>
-        <option value="Dobbeltrom med utsikt mot vannet">Dobbeltrom med utsikt mot vannet</option>
-        <option value="Mini suite">Mini suite</option>
+      <select name="romtype" id="romtype" required onchange="updatePrice()">
+        <option value="Standardrom1" data-price="2195">Standardrom – 2.195 kr 1 person</option>
+        <option value="Standardrom2" data-price="2395">Standardrom – 2.395 kr 2 personer</option>
+        <option value="Dobbeltrom med utsikt mot vannet1" data-price="2695">Dobbeltrom med utsikt – 2.695 kr 1 person</option>
+        <option value="Dobbeltrom med utsikt mot vannet2" data-price="2895">Dobbeltrom med utsikt – 2.895 kr 2 personer</option>
+        <option value="Mini suite1" data-price="2995">Mini suite – 2.995 kr 1 person</option>
+        <option value="Mini suite2" data-price="3195">Mini suite – 3.195 kr 2 personer</option>
       </select>
 
       <label for="opphold"><b>Antall netter</b></label>
-      <select name="opphold" id="opphold" required>
-        <option value="Ingen overnatting">Ingen overnatting</option>
-        <option value="1 natt (Lørdag til Søndag)">1 natt</option>
-        <option value="2 netter (Fredag til Søndag)">2 netter</option>
+      <select name="opphold" id="opphold" required onchange="updatePrice()">
+        <option value="Ingen overnatting" data-nights="0">Ingen overnatting</option>
+        <option value="1 natt" data-nights="1">1 natt (Lørdag til Søndag)</option>
+        <option value="2 netter" data-nights="2">2 netter (Fredag til Søndag)</option>
       </select>
+
+      <div id="totalpris" class="price-info">Velg romtype og antall netter for å se totalpris</div>
+
+      <button type="submit">Send forespørsel</button>
+    </form>
+  </section>
 
   <section class="music">
     <h2>Musikkønsker</h2>
