@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sara & Kristoffer – Bryllup 08.08.2026</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529636545121-d1bc7a1e1f5d');
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .program, .info, .rsvp, .music, .qrcode {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    form button {
+      background: #a87e6f;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #8a6355;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Sara & Kristoffer</h1>
+    <p>08.08.2026 – Rømskog Spa og Resort</p>
+  </header>
+
+  <section class="program">
+    <h2>Dagens program</h2>
+    <ul>
+      <li><b>15:00</b> – Vielse</li>
+      <li><b>17:00</b> – Middag</li>
+      <li><b>20:00</b> – Fest</li>
+    </ul>
+  </section>
+
+  <section class="info">
+    <h2>Praktisk informasjon</h2>
+    <p><b>Sted:</b> Rømskog Spa og Resort</p>
+    <p><b>Kleskode:</b> Formell</p>
+    <p><b>Overnatting:</b> Rom bookes via Sara eller Kristoffer – ta kontakt med oss for reservasjon.</p>
+    <ul>
+      <li><b>Sara:</b> <a href="tel:+4745218626">452 18 626</a></li>
+      <li><b>Kristoffer:</b> <a href="tel:+4797001136">970 01 136</a></li>
+    </ul>
+    <p><b>Gaver:</b> Vi setter stor pris på bidrag til vår bryllupsreise.</p>
+    <p><b>Kontakt:</b> For spørsmål, ta kontakt med toastmaster på <a href="mailto:toastmaster@example.com">toastmaster@example.com</a>.</p>
+  </section>
+
+  <section class="rsvp">
+    <h2>RSVP</h2>
+    <!-- Sett inn din faktiske Formspree-ID under -->
+    <form action="https://formspree.io/f/xzzvqrve" method="POST">
+      <input type="text" name="navn" placeholder="Ditt/Deres navn" required>
+      <input type="email" name="epost" placeholder="Din e-post" required>
+      <textarea name="beskjed" placeholder="Allergier eller annen info"></textarea>
+      <button type="submit">Send svar</button>
+    </form>
+  </section>
+
+  <section class="music">
+    <h2>Musikkønsker</h2>
+    <p>Har du sanger du ønsker å høre på festen? Legg inn ønskene dine her:</p>
+    <!-- Sett inn en egen Formspree-ID for musikkønsker -->
+    <form action="https://formspree.io/f/xvgqnaqv" method="POST">
+      <input type="text" name="navn" placeholder="Ditt navn" required>
+      <textarea name="Sang1" placeholder="Sangønske 1 (Tittel og Artist)"></textarea>
+      <textarea name="Sang2" placeholder="Sangønske 2 (Tittel og Artist)"></textarea>
+      <textarea name="Sang3" placeholder="Sangønske 3 (Tittel og Artist)"></textarea>
+      <button type="submit">Send inn ønsker</button>
+    </form>
+  </section>
+
+  <section class="qrcode">
+    <h2>QR-kode til nettsiden</h2>
+    <p>Skann QR-koden under for å åpne denne nettsiden:</p>
+    <div id="qrcode" style="text-align:center;"></div>
+    <script>
+      // Når dere har publisert siden på GitHub Pages, sett inn lenken her
+      var url = window.location.href;
+      new QRCode(document.getElementById("qrcode"), {
+        text: url,
+        width: 200,
+        height: 200
+      });
+    </script>
+  </section>
+
+  <footer>
+    © 2026 Sara & Kristoffer – Vi gleder oss til å feire med dere!
+  </footer>
+</body>
+</html>
