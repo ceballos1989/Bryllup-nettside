@@ -165,8 +165,15 @@
   </script>
 
   <section class="qrcode">
-    <h2>QR-kode til nettsiden</h2>
     <div id="qrcode" style="text-align:center;"></div>
+    <script>
+      var url = window.location.href;
+      new QRCode(document.getElementById("qrcode"), {
+        text: url,
+        width: 200,
+        height: 200
+      });
+    </script>
   </section>
 
   <footer>© 2026 Sara & Kristoffer – Vi gleder oss til å feire med dere!</footer>
