@@ -148,7 +148,7 @@
       musikkData.append('musikk2', formData.get('musikk2'));
       musikkData.append('musikk3', formData.get('musikk3'));
       
-      await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } });
+     <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } }); -->
       const hotellData = new FormData();
       hotellData.append('hotell_navn', formData.get('hotell_navn'));
       hotellData.append('hotell_telefon', formData.get('hotell_telefon'));
@@ -156,7 +156,7 @@
       hotellData.append('romtype', formData.get('romtype'));
       hotellData.append('opphold', formData.get('opphold'));
       
-      await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } });
+      <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } }); -->
 
       confirmationMessage.style.display = 'block';
       form.reset();
