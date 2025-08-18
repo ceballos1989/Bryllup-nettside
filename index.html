@@ -141,19 +141,21 @@
 
       const formData = new FormData(form);
 
-      await fetch('https://formspree.io/f/xvgqnaqv', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+      await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
       const musikkData = new FormData();
       musikkData.append('musikk_navn', formData.get('musikk_navn'));
       musikkData.append('musikk1', formData.get('musikk1'));
       musikkData.append('musikk2', formData.get('musikk2'));
       musikkData.append('musikk3', formData.get('musikk3'));
-      await fetch('https://formspree.io/f/mwpqjbdv', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } });
+      
+      await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } });
       const hotellData = new FormData();
       hotellData.append('hotell_navn', formData.get('hotell_navn'));
       hotellData.append('hotell_telefon', formData.get('hotell_telefon'));
       hotellData.append('hotell_antall_personer', formData.get('hotell_antall_personer'));
       hotellData.append('romtype', formData.get('romtype'));
       hotellData.append('opphold', formData.get('opphold'));
+      
       await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } });
 
       confirmationMessage.style.display = 'block';
