@@ -63,9 +63,9 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
   <form id="combinedForm">
     <section class="rsvp">
       <h2>RSVP</h2>
-      <input type="text" name="1rsvp_navn" placeholder="Navn på gjest(er)" required>
-      <input type="email" name="1rsvp_epost" placeholder="Din e-post" required>
-      <textarea name="1rsvp_beskjed" placeholder="Allergier eller annen info"></textarea>
+      <input type="text" name="rsvp_navn" placeholder="Navn på gjest(er)" required>
+      <input type="email" name="rsvp_epost" placeholder="Din e-post" required>
+      <textarea name="rsvp_beskjed" placeholder="Allergier eller annen info"></textarea>
     </section>
 
     <section class="Hotell">
@@ -79,10 +79,10 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
         <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
         <li><b>For mer informasjon om hotellet:</b> <a href="https://www.romskogspa.no">Rømskog Spa og Resort</a></li>
     </div>
-      <input type="text" name="2hotell_navn" placeholder="Navn på overnattende gjester" required>
-      <input type="tel" name="2hotell_telefon" placeholder="Telefonnummer" required>
-      <input type="number" name="2hotell_antall_personer" placeholder="Antall personer" required>
-      <select name="2hotell_romtype" id="2hotell_romtype" required>
+      <input type="text" name="hotell_navn" placeholder="Navn på overnattende gjester" required>
+      <input type="tel" name="hotell_telefon" placeholder="Telefonnummer" required>
+      <input type="number" name="hotell_antall_personer" placeholder="Antall personer" required>
+      <select name="hotell_romtype" id="hotell_romtype" required>
         <option value="Ingen" data-price="0">Trenger ikke rom</option>
         <option value="Standard" data-price="2195">Standardrom – 2.195 kr per natt (1 person)</option>
         <option value="Standard" data-price="2395">Standardrom – 2.395 kr per natt (2 personer)</option>
@@ -91,20 +91,20 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
         <option value="Mini suite" data-price="2995">Mini suite – 2.995 kr per natt (1 person)</option>
         <option value="Mini suite" data-price="3195">Mini suite – 3.195 kr per natt (2 personer)</option>
       </select>
-      <select name="2opphold" id="2opphold" required>
+      <select name="opphold" id="opphold" required>
         <option value="Ingen overnatting" data-nights="0">Ingen overnatting</option>
         <option value="1 natt" data-nights="1">1 natt</option>
         <option value="2 netter" data-nights="2">2 netter</option>
       </select>
-      <input type="text" name="2hotell_navn" placeholder="Andre ønsker eller annen informasjon" required>
+      <input type="text" name="hotell_navn" placeholder="Andre ønsker eller annen informasjon" required>
       <p class="price-info">Pris per natt og totalpris vil vises her.</p>
     </section>
 
     <section class="music">
       <h2>Musikkønsker</h2>
-      <textarea name="3musikk1" placeholder="Sangønske 1 (Tittel og Artist)"></textarea>
-      <textarea name="3musikk2" placeholder="Sangønske 2 (Tittel og Artist)"></textarea>
-      <textarea name="3musikk3" placeholder="Sangønske 3 (Tittel og Artist)"></textarea>
+      <textarea name="musikk1" placeholder="Sangønske 1 (Tittel og Artist)"></textarea>
+      <textarea name="musikk2" placeholder="Sangønske 2 (Tittel og Artist)"></textarea>
+      <textarea name="musikk3" placeholder="Sangønske 3 (Tittel og Artist)"></textarea>
     </section>
 
     <button type="submit">Send svar</button>
@@ -117,13 +117,13 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
   <script>
     const form = document.getElementById('combinedForm');
     const confirmationMessage = document.getElementById('confirmationMessage');
-    const 2hotell_romtypeSelect = document.getElementById('2hotell_romtype');
-    const 2oppholdSelect = document.getElementById('2opphold');
+    const hotell_romtypeSelect = document.getElementById('2hotell_romtype');
+    const oppholdSelect = document.getElementById('2opphold');
     const priceInfo = document.querySelector('.price-info');
 
     function updatePrice() {
-      const selectedRoom = 2hotell_romtypeSelect.options[2hotell_romtypeSelect.selectedIndex];
-      const selected2opphold = 2oppholdSelect.options[2oppholdSelect.selectedIndex];
+      const selectedRoom = hotell_romtypeSelect.options[hotell_romtypeSelect.selectedIndex];
+      const selected2opphold = oppholdSelect.options[oppholdSelect.selectedIndex];
       const price = parseInt(selectedRoom.getAttribute('data-price')) || 0;
       const nights = parseInt(selected2opphold.getAttribute('data-nights')) || 0;
       const total = price * nights;
@@ -135,8 +135,8 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
       }
     }
 
-    2hotell_romtypeSelect.addEventListener('change', updatePrice);
-    2oppholdSelect.addEventListener('change', updatePrice);
+    hotell_romtypeSelect.addEventListener('change', updatePrice);
+    oppholdSelect.addEventListener('change', updatePrice);
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -146,17 +146,17 @@ Vi kommer til å være på Rømskog fra Fredag til Søndag for forberedelser og 
       await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
       const musikkData = new FormData();
       musikkData.append('musikk_navn', formData.get('musikk_navn'));
-      musikkData.append('3musikk1', formData.get('3musikk1'));
-      musikkData.append('3musikk2', formData.get('3musikk2'));
-      musikkData.append('3musikk3', formData.get('3musikk3'));
+      musikkData.append('musikk1', formData.get('musikk1'));
+      musikkData.append('musikk2', formData.get('musikk2'));
+      musikkData.append('musikk3', formData.get('musikk3'));
       
      <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } }); -->
       const hotellData = new FormData();
-      hotellData.append('2hotell_navn', formData.get('2hotell_navn'));
-      hotellData.append('2hotell_telefon', formData.get('2hotell_telefon'));
-      hotellData.append('2hotell_antall_personer', formData.get('2hotell_antall_personer'));
-      hotellData.append('2hotell_romtype', formData.get('2hotell_romtype'));
-      hotellData.append('2opphold', formData.get('2opphold'));
+      hotellData.append('hotell_navn', formData.get('hotell_navn'));
+      hotellData.append('hotell_telefon', formData.get('hotell_telefon'));
+      hotellData.append('hotell_antall_personer', formData.get('hotell_antall_personer'));
+      hotellData.append('hotell_romtype', formData.get('hotell_romtype'));
+      hotellData.append('opphold', formData.get('opphold'));
       
       <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } }); -->
 
