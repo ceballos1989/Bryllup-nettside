@@ -74,6 +74,7 @@
         <li>Mini suite: 2.995 / 3.195 kr (1 stk)</li>
         <li>Junior suite: 3.295 / 3.495 kr (1 stk)</li>
         <li>Senior suite: 3.595 / 3.795 kr (1 stk)</li>
+        <li>Det er begrenset med antall suiter, her vil vi evt. praktisere "førstemann til mølla"-prinsippet</li>
         <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
         <li><b>For mer informasjon om hotellet:</b> <a href="https://www.romskogspa.no">Rømskog Spa og Resort</a></li>
     </div>
@@ -81,6 +82,7 @@
       <input type="tel" name="hotell_telefon" placeholder="Telefonnummer" required>
       <input type="number" name="hotell_antall_personer" placeholder="Antall personer" required>
       <select name="hotell_romtype" id="hotell_romtype" required>
+        <option value="Ingen" data-price="0">Velg romtype</option>
         <option value="Ingen" data-price="0">Trenger ikke rom</option>
         <option value="Standard" data-price="2195">Standardrom – 2.195 kr per natt (1 person)</option>
         <option value="Standard" data-price="2395">Standardrom – 2.395 kr per natt (2 personer)</option>
@@ -92,10 +94,6 @@
         <option value="Junior suite" data-price="3195">Junior suite – 3.495 kr per natt (2 personer)</option>
         <option value="Senior suite" data-price="3595">Senior suite – 3.595 kr per natt (1 person)</option>
         <option value="Senior suite" data-price="3795">Senior suite – 3.795 kr per natt (2 personer)</option>
-      </select>
-      <select name="opphold" id="opphold" required>
-        <option value="Ingen overnatting" data-nights="0">Ingen overnatting</option>
-        <option value="1 natt" data-nights="1">1 natt</option>
       </select>
       <input type="text" name="hotell_navn" placeholder="Andre ønsker eller annen informasjon" required>
       <p class="price-info">Pris per natt og totalpris vil vises her.</p>
@@ -120,18 +118,16 @@
     const form = document.getElementById('combinedForm');
     const confirmationMessage = document.getElementById('confirmationMessage');
     const hotell_romtypeSelect = document.getElementById('hotell_romtype');
-    const oppholdSelect = document.getElementById('opphold');
     const priceInfo = document.querySelector('.price-info');
 
     function updatePrice() {
       const selectedRoom = hotell_romtypeSelect.options[hotell_romtypeSelect.selectedIndex];
       const selectedopphold = oppholdSelect.options[oppholdSelect.selectedIndex];
       const price = parseInt(selectedRoom.getAttribute('data-price')) || 0;
-      const nights = parseInt(selectedopphold.getAttribute('data-nights')) || 0;
-      const total = price * nights;
+      const total = price;
 
       if (nights > 0) {
-        priceInfo.textContent = `Pris per natt: ${price} kr – Totalt: ${total} kr`;
+        priceInfo.textContent = `Totalt: ${total} kr`;
       } else {
         priceInfo.textContent = 'Ingen overnatting valgt.';
       }
@@ -158,7 +154,6 @@
       hotellData.append('hotell_telefon', formData.get('hotell_telefon'));
       hotellData.append('hotell_antall_personer', formData.get('hotell_antall_personer'));
       hotellData.append('hotell_romtype', formData.get('hotell_romtype'));
-      hotellData.append('opphold', formData.get('opphold'));
       
       <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } }); -->
 
