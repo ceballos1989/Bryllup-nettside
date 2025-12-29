@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sara & Kristoffer – Bryllup 08.08.2026</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body { font-family: 'Libre Baskerville', serif; margin: 0; background: #FFFCFA; color: #444; }
     header { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('bilder/header.jpg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 120px 20px; }
@@ -21,161 +24,149 @@
     form button:hover { background: #8c4949; }
     .confirmation { display: none; text-align: center; padding: 20px; margin: 20px auto; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 8px; max-width: 600px; }
     footer { text-align: center; padding: 30px; font-size: 0.9em; color: #666; background: #fff1f1; margin-top: 40px; font-family: 'Great Vibes', cursive; font-style: italic; }
-    ul.program-list { list-style: none; padding: 0; }
-    ul.program-list li { margin: 10px 0; font-size: 1.1em; }
-    ul.program-list li span.icon { margin-right: 10px; }
-    .price-info { font-style: italic; margin-top: 10px; color: #555; }
+    .price-info { font-style: italic; margin-top: 10px; color: #555; text-align:center }
   </style>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <header>
-    <h1>Sara & Kristoffer</h1>
-    <p>Lørdag 08.08.2026 – Rømskog Spa og Resort</p>
-  </header>
+<header>
+  <h1>Sara & Kristoffer</h1>
+  <p>Lørdag 08.08.2026 – Rømskog Spa og Resort</p>
+</header>
 
-  <section class="program">
-    <h2> Program for den store dagen kommer</h2>
-  </section>
+<section class="program">
+  <h2> Program for den store dagen kommer</h2>
+</section>
 
-  <section class="info">
-    <h2>Praktisk informasjon</h2>
-    <p><span class="icon"><i class="fas fa-ring"></i></span><strong> Sted:</strong> Rømskog Spa og Resort</p>
-    <p><span class="icon"><i class="fas fa-user-tie"></i></span><strong> Kleskode:</strong> Pent </p>
-    <p><span class="icon"><i class="fas fa-hotel"></i></span><strong> Overnatting:</strong> Rom bookes via Sara og Kristoffer – se lenger ned for reservasjon av room.</p>
-    <p><span class="icon"><i class="fas fa-gift"></i></span><strong> Gaver:</strong> Vi setter pris på gaver, primært ønsker vi oss et bidrag til vår bryllupsreise. Vi supplerer med gaveliste senere. Kontonummer: 6580.49.19494.</p>
-    <p><span class="icon"><i class="fas fa-phone"></i></span><strong> Kontakt:</strong> For spørsmål, ta kontakt med oss:</p>
-        <ul>
-      <li><b>Sara:</b> <a href="tel:+4745218626">452 18 626</a></li>
-      <li><b>Kristoffer:</b> <a href="tel:+4797001136">970 01 136</a></li>
-    </ul>
-    <p>Taler og innslag er velkomne og meldes til Toastmaster.
-    <p><span class="icon"><i class="fas fa-phone"></i></span><strong>Toastmaster:</strong> Sondre Klaseie - <a href="tel:+4790914771"> 909 14 771</a></p>
-  </section>
+<section class="info">
+  <h2>Praktisk informasjon</h2>
 
-  <form id="combinedForm">
-    <section class="rsvp">
-      <h2>RSVP</h2>
-      <p><span class="icon"><i class="fas fa-church"></i></span> Vi ønsker å vite hvor mange inviterte som kommer, fyll inn informasjon under:</p>
-      <input type="text" name="rsvp_navn" placeholder="Navn på gjest(er)" required>
-      <input type="email" name="rsvp_epost" placeholder="Din e-post" required>
-      <textarea name="rsvp_beskjed" placeholder="Allergier eller annen info"></textarea>
-    </section>
+  <p><i class="fas fa-ring"></i> <strong>Sted:</strong> Rømskog Spa og Resort</p>
+  <p><i class="fas fa-user-tie"></i> <strong>Kleskode:</strong> Pent</p>
+  <p><i class="fas fa-hotel"></i> <strong>Overnatting:</strong> Rom bookes via Sara og Kristoffer – se lenger ned.</p>
+  <p><i class="fas fa-gift"></i> <strong>Gaver:</strong> Bidrag til bryllupsreise. Konto: 6580.49.19494.</p>
 
-    <section class="Hotell">
-      <h2>Reservering av hotellrom</h2>
-      <p><span class="icon"><i class="fas fa-hotel"></i></span> Ønsker dere overnatting på hotellet fra lørdag til søndag, skal dette gjøres gjennom oss ved å fylle ut skjema under. Er det ønskelig med rom fra fredag til lørdag, bookes dette på egenhånd via Rømskog Spa og Resort. Gi beskjed om at dere er gjest i vårt bryllup slik at dere beholder samme rom gjennom hele oppholdet.</p>
-       <div class="prices">
-      <h3>Priser per natt (lørdag til søndag)</h3>
-      <ul>
-        <li>Standardrom:  2.195 / 2.395 kr (9 stk)</li>
-        <li>Dobbeltrom med utsikt mot vannet: 2.695 / 2.895 kr (33stk)</li>
-        <li>Mini suite: 2.995 / 3.195 kr (1 stk)</li>
-        <li>Junior suite: 3.295 / 3.495 kr (1 stk)</li>
-        <li>Senior suite: 3.595 / 3.795 kr (1 stk)</li>
-        <li>Det er begrenset med antall suiter, her vil vi evt. praktisere "førstemann til mølla"-prinsippet</li>
-        <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
-        <li><b>For mer informasjon om hotellet:</b> <a href="https://www.romskogspa.no">Rømskog Spa og Resort</a></li>
-    </div>
-      <input type="text" name="hotell_navn" placeholder="Navn på overnattende gjester" required>
-      <input type="tel" name="hotell_telefon" placeholder="Telefonnummer" required>
-      <input type="number" name="hotell_antall_personer" placeholder="Antall personer" required>
-      <select name="hotell_romtype" id="hotell_romtype" required>
-        <option value="Ingen" data-price="0">Velg romtype</option>
-        <option value="Ingen" data-price="0">Trenger ikke rom</option>
-        <option value="Standard" data-price="2195">Standardrom – 2.195 kr per natt (1 person)</option>
-        <option value="Standard" data-price="2395">Standardrom – 2.395 kr per natt (2 personer)</option>
-        <option value="Dobbeltrom" data-price="2695">Dobbeltrom – 2.695 kr per natt (1 person)</option>
-        <option value="Dobbeltrom" data-price="2895">Dobbeltrom – 2.895 kr per natt (2 personer)</option>
-        <option value="Mini suite" data-price="2995">Mini suite – 2.995 kr per natt (1 person)</option>
-        <option value="Mini suite" data-price="3195">Mini suite – 3.195 kr per natt (2 personer)</option>
-        <option value="Junior suite" data-price="3295">Junior suite – 3.295 kr per natt (1 person)</option>
-        <option value="Junior suite" data-price="3195">Junior suite – 3.495 kr per natt (2 personer)</option>
-        <option value="Senior suite" data-price="3595">Senior suite – 3.595 kr per natt (1 person)</option>
-        <option value="Senior suite" data-price="3795">Senior suite – 3.795 kr per natt (2 personer)</option>
-      </select>
-      <input type="text" name="hotell_navn" placeholder="Andre ønsker eller annen informasjon" required>
-    </section>
+  <p><i class="fas fa-phone"></i> <strong>Kontakt:</strong></p>
+  <ul>
+    <li><b>Sara:</b> <a href="tel:+4745218626">452 18 626</a></li>
+    <li><b>Kristoffer:</b> <a href="tel:+4797001136">970 01 136</a></li>
+  </ul>
 
-    <section class="music">
-      <h2>Musikkønsker</h2>
-      <p> Vi ønsker oss en god fest! Skriv ned 3 sanger som gjør at det rykker i rockefoten! </p>
-      <textarea name="musikk1" placeholder="Sangønske 1 (Tittel og Artist)"></textarea>
-      <textarea name="musikk2" placeholder="Sangønske 2 (Tittel og Artist)"></textarea>
-      <textarea name="musikk3" placeholder="Sangønske 3 (Tittel og Artist)"></textarea>
-    </section>
+  <p>Taler og innslag meldes til Toastmaster.</p>
+  <p><i class="fas fa-phone"></i> <strong>Toastmaster:</strong> Sondre Klaseie – <a href="tel:+4790914771">909 14 771</a></p>
+</section>
 
-    <button type="submit">Send svar</button>
-  </form>
+<form id="combinedForm">
+<section class="rsvp">
+  <h2>RSVP</h2>
+  <p><i class="fas fa-church"></i> Fyll inn informasjon under:</p>
 
-  <div id="confirmationMessage" class="confirmation">
-    Tusen takk! Vi har mottatt svarene dine og ser frem til den store dagen ❤
-  </div>
+  <input type="text" name="rsvp_navn" placeholder="Navn på gjest(er)" required>
+  <input type="email" name="rsvp_epost" placeholder="Din e-post" required>
+  <textarea name="rsvp_beskjed" placeholder="Allergier eller annen info"></textarea>
+</section>
 
-  <script>
-    const form = document.getElementById('combinedForm');
-    const confirmationMessage = document.getElementById('confirmationMessage');
-    const hotell_romtypeSelect = document.getElementById('hotell_romtype');
-    const priceInfo = document.querySelector('.price-info');
+<section class="Hotell">
+  <h2>Reservering av hotellrom</h2>
 
-    function updatePrice() {
-      const selectedRoom = hotell_romtypeSelect.options[hotell_romtypeSelect.selectedIndex];
-      const selectedopphold = oppholdSelect.options[oppholdSelect.selectedIndex];
-      const price = parseInt(selectedRoom.getAttribute('data-price')) || 0;
-      const total = price;
+  <p><i class="fas fa-hotel"></i> Ønsker dere rom fra lørdag til søndag, fyll ut under.</p>
 
-      if (nights > 0) {
-        priceInfo.textContent = `Totalt: ${total} kr`;
-      } else {
-        priceInfo.textContent = 'Ingen overnatting valgt.';
-      }
-    }
+  <h3>Priser per natt</h3>
 
-    hotell_romtypeSelect.addEventListener('change', updatePrice);
-    oppholdSelect.addEventListener('change', updatePrice);
+  <ul>
+    <li>Standardrom: 2195 / 2395 kr</li>
+    <li>Dobbeltrom mot vannet: 2695 / 2895 kr</li>
+    <li>Mini suite: 2995 / 3195 kr</li>
+    <li>Junior suite: 3295 / 3495 kr</li>
+    <li>Senior suite: 3595 / 3795 kr</li>
+  </ul>
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+  <input type="text" name="hotell_navn" placeholder="Navn på overnattende gjester">
+  <input type="tel" name="hotell_telefon" placeholder="Telefonnummer">
+  <input type="number" name="hotell_antall_personer" placeholder="Antall personer">
 
-      const formData = new FormData(form);
+  <select name="hotell_romtype" id="hotell_romtype">
+    <option value="Ingen" data-price="0">Velg romtype</option>
+    <option value="Ingen" data-price="0">Trenger ikke rom</option>
+    <option value="Standard" data-price="2195">Standardrom – 1 pers</option>
+    <option value="Standard" data-price="2395">Standardrom – 2 pers</option>
+    <option value="Dobbeltrom" data-price="2695">Dobbeltrom – 1 pers</option>
+    <option value="Dobbeltrom" data-price="2895">Dobbeltrom – 2 pers</option>
+    <option value="Mini suite" data-price="2995">Mini suite – 1 pers</option>
+    <option value="Mini suite" data-price="3195">Mini suite – 2 pers</option>
+    <option value="Junior suite" data-price="3295">Junior suite – 1 pers</option>
+    <option value="Junior suite" data-price="3495">Junior suite – 2 pers</option>
+    <option value="Senior suite" data-price="3595">Senior suite – 1 pers</option>
+    <option value="Senior suite" data-price="3795">Senior suite – 2 pers</option>
+  </select>
 
-      await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-      const musikkData = new FormData();
-      musikkData.append('musikk_navn', formData.get('musikk_navn'));
-      musikkData.append('musikk1', formData.get('musikk1'));
-      musikkData.append('musikk2', formData.get('musikk2'));
-      musikkData.append('musikk3', formData.get('musikk3'));
-      
-     <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: musikkData, headers: { 'Accept': 'application/json' } }); -->
-      const hotellData = new FormData();
-      hotellData.append('hotell_navn', formData.get('hotell_navn'));
-      hotellData.append('hotell_telefon', formData.get('hotell_telefon'));
-      hotellData.append('hotell_antall_personer', formData.get('hotell_antall_personer'));
-      hotellData.append('hotell_romtype', formData.get('hotell_romtype'));
-      
-      <!--  await fetch('https://formspree.io/f/xzzvqrve', { method: 'POST', body: hotellData, headers: { 'Accept': 'application/json' } }); -->
+  <div class="price-info">Ingen overnatting valgt</div>
 
-      confirmationMessage.style.display = 'block';
-      form.reset();
-      updatePrice();
-    });
+  <input type="text" name="hotell_annet" placeholder="Andre ønsker eller informasjon">
+</section>
 
-    new QRCode(document.getElementById("qrcode"), { text: window.location.href, width: 200, height: 200 });
-  </script>
+<section class="music">
+  <h2>Musikkønsker</h2>
+  <p>Skriv 3 sanger som garanterer fest!</p>
 
-  <section class="qrcode">
-    <div id="qrcode" style="text-align:center;"></div>
-    <script>
-      var url = window.location.href;
-      new QRCode(document.getElementById("qrcode"), {
-        text: url,
-        width: 200,
-        height: 200
-      });
-    </script>
-  </section>
+  <textarea name="musikk1" placeholder="Sang 1 – Artist & Tittel"></textarea>
+  <textarea name="musikk2" placeholder="Sang 2 – Artist & Tittel"></textarea>
+  <textarea name="musikk3" placeholder="Sang 3 – Artist & Tittel"></textarea>
+</section>
 
-  <footer>© 2026 Sara & Kristoffer – Vi gleder oss til å feire med dere!</footer>
+<button type="submit">Send svar</button>
+</form>
+
+<div id="confirmationMessage" class="confirmation">
+  Tusen takk! Vi har mottatt svarene dine ❤️
+</div>
+
+<section class="qrcode">
+  <div id="qrcode" style="text-align:center;"></div>
+</section>
+
+<footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
+
+<script>
+const form = document.getElementById('combinedForm');
+const confirmationMessage = document.getElementById('confirmationMessage');
+const hotell_romtypeSelect = document.getElementById('hotell_romtype');
+const priceInfo = document.querySelector('.price-info');
+
+function updatePrice() {
+  const selected = hotell_romtypeSelect.options[hotell_romtypeSelect.selectedIndex];
+  const price = parseInt(selected.getAttribute('data-price')) || 0;
+
+  if (price > 0) priceInfo.textContent = `Pris: ${price} kr per natt`;
+  else priceInfo.textContent = 'Ingen overnatting valgt';
+}
+
+hotell_romtypeSelect.addEventListener('change', updatePrice);
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  await fetch('https://formspree.io/f/xzzvqrve', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  confirmationMessage.style.display = 'block';
+  form.reset();
+  updatePrice();
+});
+
+new QRCode(document.getElementById("qrcode"), {
+  text: window.location.href,
+  width: 200,
+  height: 200
+});
+</script>
+
 </body>
 </html>
