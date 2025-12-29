@@ -129,37 +129,59 @@
 
 <footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
 
+<form 
+  action="https://docs.google.com/forms/d/e/1FAIpQLSfJRqyJrO1Quwv4vmV0Tk2A31cBoAOJyzvUjTGY2TJzULFSvA/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="visBekreftelse()"
+>
+
+  <input 
+    type="text" 
+    name="entry.1534007488" 
+    placeholder="Navn på gjest(er)" 
+    required
+  >
+
+  <input 
+    type="email" 
+    name="entry.1771580004" 
+    placeholder="E-post" 
+    required
+  >
+
+  <textarea 
+    name="entry.254894564" 
+    placeholder="Allergier / annen info"
+  ></textarea>
+
+  <textarea 
+    name="entry.1397225197" 
+    placeholder="Hotellinformasjon"
+  ></textarea>
+
+  <textarea 
+    name="entry.589168747" 
+    placeholder="Musikkønsker"
+  ></textarea>
+
+  <button type="submit">
+    Send svar
+  </button>
+</form>
+
+<iframe name="hidden_iframe" style="display:none"></iframe>
+
+<p id="confirmationMessage" style="display:none;">
+  Takk! Svaret ditt er sendt inn.
+</p>
+
 <script>
-const form = document.getElementById('combinedForm');
-const confirmationMessage = document.getElementById('confirmationMessage');
-const hotell_romtypeSelect = document.getElementById('hotell_romtype');
-const priceInfo = document.querySelector('.price-info');
+  function visBekreftelse() {
+    document.getElementById('confirmationMessage').style.display = 'block';
+  }
+</script>
 
-function updatePrice() {
-  const selected = hotell_romtypeSelect.options[hotell_romtypeSelect.selectedIndex];
-  const price = parseInt(selected.getAttribute('data-price')) || 0;
-
-  if (price > 0) priceInfo.textContent = `Pris: ${price} kr per natt`;
-  else priceInfo.textContent = 'Ingen overnatting valgt';
-}
-
-hotell_romtypeSelect.addEventListener('change', updatePrice);
-
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  await fetch('https://formspree.io/f/xzzvqrve', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  });
-
-  confirmationMessage.style.display = 'block';
-  form.reset();
-  updatePrice();
-});
 
 new QRCode(document.getElementById("qrcode"), {
   text: window.location.href,
