@@ -121,57 +121,92 @@
 <footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
 
 <form 
+  id="combinedForm"
   action="https://docs.google.com/forms/d/e/1FAIpQLSfJRqyJrO1Quwv4vmV0Tk2A31cBoAOJyzvUjTGY2TJzULFSvA/formResponse"
   method="POST"
   target="hidden_iframe"
-  onsubmit="visBekreftelse()"
 >
 
-  <input 
-    type="text" 
-    name="entry.1534007488" 
-    placeholder="Navn på gjest(er)" 
-    required
-  >
+  <!-- RSVP -->
+  <section class="rsvp">
+    <h2>RSVP</h2>
+    <input type="text" id="rsvp_navn" placeholder="Navn på gjest(er)" required>
+    <input type="email" id="rsvp_epost" placeholder="Din e-post" required>
+    <textarea id="rsvp_beskjed" placeholder="Allergier eller annen info"></textarea>
+  </section>
 
-  <input 
-    type="email" 
-    name="entry.1771580004" 
-    placeholder="E-post" 
-    required
-  >
+  <!-- Hotell -->
+  <section class="Hotell">
+    <h2>Reservering av hotellrom</h2>
+    <input type="text" id="hotell_navn" placeholder="Navn på overnattende gjester">
+    <input type="tel" id="hotell_telefon" placeholder="Telefonnummer">
+    <input type="number" id="hotell_antall_personer" placeholder="Antall personer">
+    <select id="hotell_romtype">
+      <option value="">Velg romtype</option>
+      <option>Trenger ikke rom</option>
+      <option>Standardrom</option>
+      <option>Dobbeltrom</option>
+      <option>Suite</option>
+    </select>
+    <textarea id="hotell_annet" placeholder="Andre ønsker / info"></textarea>
+  </section>
 
-  <textarea 
-    name="entry.254894564" 
-    placeholder="Allergier / annen info"
-  ></textarea>
+  <!-- Musikk -->
+  <section class="music">
+    <h2>Musikkønsker</h2>
+    <textarea id="musikk1" placeholder="Sang 1"></textarea>
+    <textarea id="musikk2" placeholder="Sang 2"></textarea>
+    <textarea id="musikk3" placeholder="Sang 3"></textarea>
+  </section>
 
-  <textarea 
-    name="entry.1397225197" 
-    placeholder="Hotellinformasjon"
-  ></textarea>
+  <!-- skjulte felt som sendes til Google -->
+  <input type="hidden" name="entry.1534007488" id="g_nav">
+  <input type="hidden" name="entry.1771580004" id="g_epost">
+  <input type="hidden" name="entry.254894564" id="g_allergi">
+  <input type="hidden" name="entry.1397225197" id="g_hotell">
+  <input type="hidden" name="entry.589168747" id="g_musikk">
 
-  <textarea 
-    name="entry.589168747" 
-    placeholder="Musikkønsker"
-  ></textarea>
-
-  <button type="submit">
-    Send svar
-  </button>
+  <button type="submit">Send svar</button>
 </form>
 
 <iframe name="hidden_iframe" style="display:none"></iframe>
 
-<p id="confirmationMessage" style="display:none;">
-  Takk! Svaret ditt er sendt inn.
-</p>
+<div id="confirmationMessage" class="confirmation">
+  Tusen takk! Vi har mottatt svarene dine ❤️
+</div>
 
 <script>
-  function visBekreftelse() {
-    document.getElementById('confirmationMessage').style.display = 'block';
-  }
+document.getElementById("combinedForm").addEventListener("submit", function() {
+
+  // Google Forms mapping
+  document.getElementById("g_nav").value =
+    document.getElementById("rsvp_navn").value;
+
+  document.getElementById("g_epost").value =
+    document.getElementById("rsvp_epost").value;
+
+  document.getElementById("g_allergi").value =
+    document.getElementById("rsvp_beskjed").value;
+
+  document.getElementById("g_hotell").value =
+    "Navn: " + document.getElementById("hotell_navn").value + "\n" +
+    "Telefon: " + document.getElementById("hotell_telefon").value + "\n" +
+    "Antall personer: " + document.getElementById("hotell_antall_personer").value + "\n" +
+    "Romtype: " + document.getElementById("hotell_romtype").value + "\n" +
+    "Annet: " + document.getElementById("hotell_annet").value;
+
+  document.getElementById("g_musikk").value =
+    (document.getElementById("musikk1").value || "") + "\n" +
+    (document.getElementById("musikk2").value || "") + "\n" +
+    (document.getElementById("musikk3").value || "");
+
+  // vis bekreftelse
+  setTimeout(() => {
+    document.getElementById("confirmationMessage").style.display = "block";
+  }, 600);
+});
 </script>
+
 
 
 new QRCode(document.getElementById("qrcode"), {
