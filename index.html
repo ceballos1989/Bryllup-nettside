@@ -135,7 +135,6 @@
 <script>
 document.getElementById("combinedForm").addEventListener("submit", function() {
 
-  // Google Forms mapping
   document.getElementById("g_nav").value =
     document.getElementById("rsvp_navn").value;
 
@@ -157,23 +156,25 @@ document.getElementById("combinedForm").addEventListener("submit", function() {
     (document.getElementById("musikk2").value || "") + "\n" +
     (document.getElementById("musikk3").value || "");
 
-  // vis bekreftelse
   setTimeout(() => {
     document.getElementById("confirmationMessage").style.display = "block";
   }, 600);
 });
 </script>
 
+<div id="qrcode"></div>
 
-
+<script>
 new QRCode(document.getElementById("qrcode"), {
   text: window.location.href,
   width: 200,
   height: 200
 });
 </script>
-
-</body>
-</html>
+        
+});
+</script>
 
 <footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
+</body>
+</html>
