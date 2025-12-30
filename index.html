@@ -121,6 +121,14 @@
 
 <iframe name="hidden_iframe" style="display:none"></iframe>
 
+<script>
+  const iframe = document.querySelector("iframe[name='hidden_iframe']");
+  iframe.addEventListener("load", function() {
+      document.getElementById("confirmationMessage").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
 <div id="confirmationMessage" class="confirmation">
   Tusen takk! Vi har mottatt svarene dine ❤️
 </div>
@@ -146,7 +154,6 @@ document.getElementById("combinedForm").addEventListener("submit", function() {
     (document.getElementById("musikk2").value || "") + "\n" +
     (document.getElementById("musikk3").value || "");
 
-  setTimeout(() => document.getElementById("confirmationMessage").style.display = "block", 700);
 });
 
 new QRCode(document.getElementById("qrcode"), {
