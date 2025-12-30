@@ -70,9 +70,9 @@
 <!-- RSVP -->
 <section class="rsvp">
   <h2>RSVP</h2>
-  <input id="rsvp_navn" placeholder="Navn på gjest(er)" required>
-  <input id="rsvp_epost" type="email" placeholder="Din e-post" required>
-  <textarea id="rsvp_beskjed" placeholder="Allergier eller info"></textarea>
+<input id="rsvp_navn" name="rsvp_navn" placeholder="Navn på gjest(er)" required>
+<input id="rsvp_epost" name="rsvp_epost" type="email" placeholder="Din e-post" required>
+<textarea id="rsvp_beskjed" name="rsvp_beskjed" placeholder="Allergier eller info"></textarea>
 </section>
 
 <!-- Hotell -->
@@ -90,7 +90,7 @@
   <input id="hotell_antall_personer" type="number" placeholder="Antall personer">
 
   <select id="hotell_romtype">
-    <option>Velg romtype</option>
+    <option> value=""Velg romtype</option>
     <option>Trenger ikke rom</option>
     <option>Standard 1 pers</option>
     <option>Standard 2 pers</option>
