@@ -114,12 +114,6 @@
     Tusen takk! Vi har mottatt svarene dine og ser frem til den store dagen ❤
   </div>
 
-<section class="qrcode">
-  <div id="qrcode" style="text-align:center;"></div>
-</section>
-
-<footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
-
 <form 
   id="combinedForm"
   action="https://docs.google.com/forms/d/e/1FAIpQLSfJRqyJrO1Quwv4vmV0Tk2A31cBoAOJyzvUjTGY2TJzULFSvA/formResponse"
@@ -151,26 +145,34 @@
         <li>Det er begrenset med antall suiter, her vil vi evt. praktisere "førstemann til mølla"-prinsippet</li>
         <li>Prisene gjelder for én til to personer per rom, deretter tilkommer et tillegg på 495 per person per natt</li>
         <li><b>For mer informasjon om hotellet:</b> <a href="https://www.romskogspa.no">Rømskog Spa og Resort</a></li>
-    <input type="text" id="hotell_navn" placeholder="Navn på overnattende gjester">
-    <input type="tel" id="hotell_telefon" placeholder="Telefonnummer">
-    <input type="number" id="hotell_antall_personer" placeholder="Antall personer">
-    <select id="hotell_romtype">
-      <option value="">Velg romtype</option>
-      <option>Trenger ikke rom</option>
-      <option>Standardrom</option>
-      <option>Dobbeltrom</option>
-      <option>Suite</option>
-    </select>
-    <textarea id="hotell_annet" placeholder="Andre ønsker / info"></textarea>
-  </section>
+ <input type="text" name="hotell_navn" placeholder="Navn på overnattende gjester" required>
+      <input type="tel" name="hotell_telefon" placeholder="Telefonnummer" required>
+      <input type="number" name="hotell_antall_personer" placeholder="Antall personer" required>
+      <select name="hotell_romtype" id="hotell_romtype" required>
+        <option value="Ingen" data-price="0">Velg romtype</option>
+        <option value="Ingen" data-price="0">Trenger ikke rom</option>
+        <option value="Standard" data-price="2195">Standardrom – 2.195 kr per natt (1 person)</option>
+        <option value="Standard" data-price="2395">Standardrom – 2.395 kr per natt (2 personer)</option>
+        <option value="Dobbeltrom" data-price="2695">Dobbeltrom – 2.695 kr per natt (1 person)</option>
+        <option value="Dobbeltrom" data-price="2895">Dobbeltrom – 2.895 kr per natt (2 personer)</option>
+        <option value="Mini suite" data-price="2995">Mini suite – 2.995 kr per natt (1 person)</option>
+        <option value="Mini suite" data-price="3195">Mini suite – 3.195 kr per natt (2 personer)</option>
+        <option value="Junior suite" data-price="3295">Junior suite – 3.295 kr per natt (1 person)</option>
+        <option value="Junior suite" data-price="3195">Junior suite – 3.495 kr per natt (2 personer)</option>
+        <option value="Senior suite" data-price="3595">Senior suite – 3.595 kr per natt (1 person)</option>
+        <option value="Senior suite" data-price="3795">Senior suite – 3.795 kr per natt (2 personer)</option>
+      </select>
+      <input type="text" name="hotell_navn" placeholder="Andre ønsker eller annen informasjon" required>
+    </section>
+
 
   <!-- Musikk -->
   <section class="music">
     <h2>Musikkønsker</h2>
     <p> Vi ønsker oss en god fest! Skriv ned 3 sanger som gjør at det rykker i rockefoten! </p>
-    <textarea id="musikk1" placeholder="Sang 1"></textarea>
-    <textarea id="musikk2" placeholder="Sang 2"></textarea>
-    <textarea id="musikk3" placeholder="Sang 3"></textarea>
+    <textarea id="musikk1" placeholder="Artist og sang 1"></textarea>
+    <textarea id="musikk2" placeholder="Artist og sang 2"></textarea>
+    <textarea id="musikk3" placeholder="Artist og sang 3"></textarea>
   </section>
 
   <!-- skjulte felt som sendes til Google -->
@@ -232,3 +234,5 @@ new QRCode(document.getElementById("qrcode"), {
 
 </body>
 </html>
+
+<footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
