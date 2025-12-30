@@ -122,37 +122,42 @@
 <iframe name="hidden_iframe" style="display:none"></iframe>
 
 <script>
+  let formSubmitted = false;
+
   const iframe = document.querySelector("iframe[name='hidden_iframe']");
-  iframe.addEventListener("load", function() {
-      document.getElementById("confirmationMessage").style.display = "block";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  iframe.addEventListener("load", function () {
+    if (!formSubmitted) return;
+    document.getElementById("confirmationMessage").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.getElementById("combinedForm").addEventListener("submit", function () {
+    formSubmitted = true;
+
+    document.getElementById("g_nav").value = document.getElementById("rsvp_navn").value;
+    document.getElementById("g_epost").value = document.getElementById("rsvp_epost").value;
+    document.getElementById("g_allergi").value = document.getElementById("rsvp_beskjed").value;
+
+    document.getElementById("g_hotell").value =
+      "Navn: " + (document.getElementById("hotell_navn").value || "") + "\n" +
+      "Telefon: " + (document.getElementById("hotell_telefon").value || "") + "\n" +
+      "Antall personer: " + (document.getElementById("hotell_antall_personer").value || "") + "\n" +
+      "Romtype: " + (document.getElementById("hotell_romtype").value || "") + "\n" +
+      "Annet: " + (document.getElementById("hotell_annet").value || "");
+
+    document.getElementById("g_musikk").value =
+      (document.getElementById("musikk1").value || "") + "\n" +
+      (document.getElementById("musikk2").value || "") + "\n" +
+      (document.getElementById("musikk3").value || "");
   });
 </script>
+
 
 <div id="confirmationMessage" class="confirmation">
   Tusen takk! Vi har mottatt svarene dine ❤️
 </div>
 
 <div id="qrcode" style="text-align:center;"></div>
-
-<script>
-document.getElementById("combinedForm").addEventListener("submit", function() {
-
-  document.getElementById("g_nav").value = document.getElementById("rsvp_navn").value;
-  document.getElementById("g_epost").value = document.getElementById("rsvp_epost").value;
-  document.getElementById("g_allergi").value = document.getElementById("rsvp_beskjed").value;
-
-  document.getElementById("g_hotell").value =
-    "Navn: " + (document.getElementById("hotell_navn").value || "") + "\n" +
-    "Telefon: " + (document.getElementById("hotell_telefon").value || "") + "\n" +
-    "Antall personer: " + (document.getElementById("hotell_antall_personer").value || "") + "\n" +
-    "Romtype: " + (document.getElementById("hotell_romtype").value || "") + "\n" +
-    "Annet: " + (document.getElementById("hotell_annet").value || "");
-
-  document.getElementById("g_musikk").value =
-    (document.getElementById("musikk1").value || "") + "\n" +
-    (document.getElementById("musikk2").value || "") + "\n" +
-    (document.getElementById("musikk3").value || "");
 
 });
 
