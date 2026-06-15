@@ -205,9 +205,11 @@ fetch("gjester_bordplassering.csv")
 .then(response => response.text())
 .then(csv => {
 
-    const lines = csv.trim().split("\n");
+    const lines = csv.trim().split(/\r?\n/);
 
-    for(let i=1;i<lines.length;i++){
+    guests = [];
+
+    for(let i = 0; i < lines.length; i++){
 
         const cols = lines[i].split(";");
 
@@ -219,16 +221,17 @@ fetch("gjester_bordplassering.csv")
             lastName: cols[1].trim(),
 
             fullName:
-            `${cols[0].trim()} ${cols[1].trim()}`,
+                `${cols[0].trim()} ${cols[1].trim()}`,
 
             table:
-            cols[2].trim()
+                `Bord ${cols[2].trim()}`
 
         });
+
     }
 
-   console.log("Gjester lastet:");
-    console.log(guests);
+    console.log("Gjester lastet:", guests);
+
 });
 
 function clearHighlights(){
@@ -241,7 +244,7 @@ function clearHighlights(){
       );
 
     document
-      .getElementById("hovedbord")
+      .getElementById("bord5")
       .classList.remove("highlight");
 }
 
@@ -296,19 +299,15 @@ function findGuest(){
       return;
     }
 
-    const bordNr =
-      guest.table.replace(/[^0-9]/g,'');
+const bordNr = guest.table.replace(/[^0-9]/g, "");
 
-    const bord =
-      document.getElementById(
-      "bord" + bordNr
-      );
+const bord = document.getElementById(
+    "bord" + bordNr
+);
 
-    if(bord){
-
-      bord.classList.add("highlight");
-
-    }
+if(bord){
+    bord.classList.add("highlight");
+}
 
 }
 
