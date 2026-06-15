@@ -23,6 +23,17 @@
     form button:hover { background: #8c4949; }
     .confirmation { display: none; text-align: center; padding: 20px; margin: 20px auto; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 8px; max-width: 600px; }
     footer { text-align: center; padding: 30px; font-size: 0.9em; color: #666; background: #fff1f1; margin-top: 40px; font-family: 'Great Vibes', cursive; font-style: italic; }
+
+    .countdown-section{
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:#ffffffcc;
+    border-radius:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    text-align:center;
+}
+    
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -109,78 +120,7 @@
 
 </section>
 
-  .countdown-section{
-    text-align:center;
-}
 
-#countdown{
-    font-size:1.6em;
-    font-weight:bold;
-    color:#8c4949;
-}
-
-/* Bordplassering */
-
-.bordplassering{
-    text-align:center;
-}
-
-#guestResult{
-    margin-top:20px;
-    margin-bottom:25px;
-}
-
-.main-table{
-    max-width:600px;
-    margin:0 auto 30px auto;
-    padding:20px;
-    border-radius:12px;
-    background:#b89b5e;
-    color:white;
-    font-weight:bold;
-}
-
-.bordkart{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:nowrap;
-}
-
-.bord{
-    flex:1;
-    max-width:180px;
-    padding:25px 10px;
-    border:2px solid #ccc;
-    border-radius:12px;
-    background:white;
-    font-weight:bold;
-}
-
-.highlight{
-    background:#8c4949;
-    color:white;
-    border-color:#8c4949;
-    transform:scale(1.05);
-}
-
-@media(max-width:768px){
-
-    .bordkart{
-        gap:8px;
-    }
-
-    .bord{
-        padding:15px 5px;
-        font-size:0.85rem;
-    }
-
-}
-
-
-<script>
- 
-</script>
 
 
 <div id="qrcode" style="text-align:center; margin:20px 0;"></div>
