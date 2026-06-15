@@ -215,17 +215,20 @@ fetch("gjester_bordplassering.csv")
 
         guests.push({
 
-            firstName: cols[1].trim(),
-            lastName: cols[2].trim(),
+            firstName: cols[0].trim(),
+            lastName: cols[1].trim(),
 
             fullName:
-            `${cols[1].trim()} ${cols[2].trim()}`,
+            `${cols[0].trim()} ${cols[1].trim()}`,
 
             table:
-            cols[3].trim()
+            cols[2].trim()
 
         });
     }
+
+   console.log("Gjester lastet:");
+    console.log(guests);
 });
 
 function clearHighlights(){
