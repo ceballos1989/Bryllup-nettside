@@ -36,6 +36,11 @@
   <p>Lørdag 08.08.2026 – Rømskog Spa og Resort</p>
 </header>
 
+  <section class="countdown-section">
+  <h2>Nedtelling til den store dagen</h2>
+  <div id="countdown"></div>
+</section>
+
 <section class="program">
   <h2>Program for den store dagen kommer</h2>
 </section>
@@ -58,6 +63,119 @@
   <p>Taler og innslag er velkomne og meldes til Toastmaster.</p>
   <p><i class="fas fa-bullhorn"></i> <strong>Toastmaster:</strong> Sondre Klaseie – <a href="tel:+4790914771">909 14 771</a></p>
 </section>
+
+  <section class="bordplassering">
+
+  <h2>Finn bordplassen din</h2>
+
+  <p>
+    Bordplasseringen er klar. Søk etter navn for å finne bordet ditt.
+  </p>
+
+  <input
+    type="text"
+    id="guestName"
+    placeholder="Fornavn og etternavn">
+
+  <button type="button" onclick="findGuest()">
+    Finn plassen min
+  </button>
+
+  <div id="guestResult"></div>
+
+  <div class="main-table" id="hovedbord">
+      HOVEDBORD ❤️
+  </div>
+
+  <div class="bordkart">
+
+      <div class="bord" id="bord1">
+          BORD 1
+      </div>
+
+      <div class="bord" id="bord2">
+          BORD 2
+      </div>
+
+      <div class="bord" id="bord3">
+          BORD 3
+      </div>
+
+      <div class="bord" id="bord4">
+          BORD 4
+      </div>
+
+  </div>
+
+</section>
+
+  .countdown-section{
+    text-align:center;
+}
+
+#countdown{
+    font-size:1.6em;
+    font-weight:bold;
+    color:#8c4949;
+}
+
+/* Bordplassering */
+
+.bordplassering{
+    text-align:center;
+}
+
+#guestResult{
+    margin-top:20px;
+    margin-bottom:25px;
+}
+
+.main-table{
+    max-width:600px;
+    margin:0 auto 30px auto;
+    padding:20px;
+    border-radius:12px;
+    background:#b89b5e;
+    color:white;
+    font-weight:bold;
+}
+
+.bordkart{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:nowrap;
+}
+
+.bord{
+    flex:1;
+    max-width:180px;
+    padding:25px 10px;
+    border:2px solid #ccc;
+    border-radius:12px;
+    background:white;
+    font-weight:bold;
+}
+
+.highlight{
+    background:#8c4949;
+    color:white;
+    border-color:#8c4949;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+    .bordkart{
+        gap:8px;
+    }
+
+    .bord{
+        padding:15px 5px;
+        font-size:0.85rem;
+    }
+
+}
 
 
 <form 
@@ -175,5 +293,162 @@ new QRCode(document.getElementById("qrcode"), {
 </script>
 
 <footer>© 2026 Sara & Kristoffer – Vi gleder oss!</footer>
+<script>
+
+/* NEDTELLING */
+
+const weddingDate = new Date("2026-08-08");
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+    const diff = weddingDate - today;
+
+    const countdown =
+      document.getElementById("countdown");
+
+    if(!countdown) return;
+
+    if(diff <= 0){
+
+        countdown.innerHTML =
+        "❤️ I dag er den store dagen ❤️";
+
+        return;
+    }
+
+    const days =
+      Math.floor(
+      diff / (1000 * 60 * 60 * 24)
+      );
+
+    countdown.innerHTML =
+      `💍 ${days} dager igjen ❤️`;
+}
+
+updateCountdown();
+setInterval(updateCountdown,3600000);
+
+/* BORDPLASSERING */
+
+let guests = [];
+
+fetch("gjester_bordplassering.csv")
+.then(response => response.text())
+.then(csv => {
+
+    const lines = csv.trim().split("\n");
+
+    for(let i=1;i<lines.length;i++){
+
+        const cols = lines[i].split(",");
+
+        if(cols.length < 4) continue;
+
+        guests.push({
+
+            firstName: cols[1].trim(),
+            lastName: cols[2].trim(),
+
+            fullName:
+            `${cols[1].trim()} ${cols[2].trim()}`,
+
+            table:
+            cols[3].trim()
+
+        });
+    }
+});
+
+function clearHighlights(){
+
+    document
+      .querySelectorAll(".bord")
+      .forEach(
+      bord =>
+      bord.classList.remove("highlight")
+      );
+
+    document
+      .getElementById("hovedbord")
+      .classList.remove("highlight");
+}
+
+function findGuest(){
+
+    clearHighlights();
+
+    const search =
+      document
+      .getElementById("guestName")
+      .value
+      .trim()
+      .toLowerCase();
+
+    if(search === "") return;
+
+    const matches =
+      guests.filter(g =>
+
+        g.fullName.toLowerCase().includes(search) ||
+        g.firstName.toLowerCase().includes(search) ||
+        g.lastName.toLowerCase().includes(search)
+
+      );
+
+    const result =
+      document.getElementById("guestResult");
+
+    if(matches.length === 0){
+
+        result.innerHTML =
+        "Fant ingen gjester med dette navnet.";
+
+        return;
+    }
+
+    const guest = matches[0];
+
+    result.innerHTML =
+    `<h3>${guest.fullName}</h3>
+     <p>Du sitter på <strong>${guest.table}</strong></p>`;
+
+    if(
+      guest.table.toLowerCase()
+      .includes("hoved")
+    ){
+
+      document
+        .getElementById("hovedbord")
+        .classList.add("highlight");
+
+      return;
+    }
+
+    const bordNr =
+      guest.table.replace(/[^0-9]/g,'');
+
+    const bord =
+      document.getElementById(
+      "bord" + bordNr
+      );
+
+    if(bord){
+
+      bord.classList.add("highlight");
+
+    }
+
+}
+
+</script>
+  
 </body>
 </html>
