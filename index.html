@@ -100,14 +100,6 @@ footer {
 }
 }
 
-.highlight{
-    background:#8c4949;
-    color:white;
-    border-color:#8c4949;
-    box-shadow:0 0 25px rgba(140,73,73,0.45);
-    animation:pulse 1s ease-in-out 2;
-}
-
 </style>
     
   </style>
@@ -414,10 +406,16 @@ const bord = document.getElementById(
 );
 
 if(bord){
-
     bord.classList.add("highlight");
+});
+}
 
 }
+
+        bord.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+});
 
   function showTable(table){
 
