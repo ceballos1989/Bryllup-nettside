@@ -182,21 +182,29 @@ footer {
 
   <div class="bordkart">
 
-      <div class="bord" id="bord1">
-          BORD 1
-      </div>
+<div class="bord"
+     id="bord1"
+     onclick="showTable('Bord 1')">
+    BORD 1
+</div>
 
-      <div class="bord" id="bord2">
-          BORD 2
-      </div>
+<div class="bord"
+     id="bord2"
+     onclick="showTable('Bord 2')">
+    BORD 2
+</div>
 
-      <div class="bord" id="bord3">
-          BORD 3
-      </div>
+<div class="bord"
+     id="bord3"
+     onclick="showTable('Bord 3')">
+    BORD 3
+</div>
 
-      <div class="bord" id="bord4">
-          BORD 4
-      </div>
+<div class="bord"
+     id="bord4"
+     onclick="showTable('Bord 4')">
+    BORD 4
+</div>
 
   </div>
 
@@ -415,6 +423,57 @@ if(bord){
     behavior:"smooth",
     block:"center"
 });
+
+  function showTable(table){
+
+    clearHighlights();
+
+    const bordNr =
+      table.replace(/[^0-9]/g,'');
+
+    const bord =
+      document.getElementById(
+      "bord" + bordNr
+    );
+
+    if(bord){
+
+        bord.classList.add(
+        "highlight"
+        );
+
+    }
+
+    const tableGuests =
+      guests.filter(
+        g => g.table === table
+      );
+
+    let html =
+
+      `<div class="result-card">
+      <h3>${table}</h3>
+      <ul style="list-style:none;padding:0;">`;
+
+    tableGuests.forEach(g => {
+
+        html += `
+        <li>${g.fullName}</li>
+        `;
+
+    });
+
+    html += `
+      </ul>
+      </div>`;
+
+    document
+      .getElementById(
+      "guestResult"
+      )
+      .innerHTML = html;
+
+}
 
 </script>
   
