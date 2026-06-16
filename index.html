@@ -70,7 +70,6 @@ footer {
     transform:scale(1.08);
     box-shadow:0 0 25px rgba(140,73,73,0.45);
 }
-}
 
 .search-result{
     background:#f8f8f8;
@@ -126,7 +125,6 @@ footer {
 
 .search-container button:hover{
     background:#733b3b;
-}
     
 }
 
@@ -366,14 +364,10 @@ function findGuest(){
 
     if(search === "") return;
 
-    const matches =
-      guests.filter(g =>
-
-        g.fullName.toLowerCase().includes(search) ||
-        g.firstName.toLowerCase().includes(search) ||
-        g.lastName.toLowerCase().includes(search)
-
-      );
+const matches =
+  guests.filter(
+    g => g.fullName.toLowerCase() === search
+  );
 
     const result =
       document.getElementById("guestResult");
