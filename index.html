@@ -406,8 +406,14 @@ const bord = document.getElementById(
 );
 
 if(bord){
+
     bord.classList.add("highlight");
-});
+
+    bord.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
 }
 
 }
