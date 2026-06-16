@@ -72,7 +72,7 @@ footer {
     color:white;
     border-color:#8c4949;
     transform:scale(1.08);
-    box-shadow:0 0 20px rgba(140,73,73,0.4);
+    box-shadow:0 0 25px rgba(140,73,73,0.45);
 }
 }
 
@@ -85,14 +85,23 @@ footer {
     max-width:500px;
 }
 
-    #guestResult{
+#guestResult{
+    max-width:700px;
     margin:20px auto;
-    max-width:600px;
+}
+
+.result-card{
+    background:#fff;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
     text-align:center;
 }
 
-#guestResult h3{
+.result-card h3{
     color:#8c4949;
+    margin-bottom:10px;
+}
 }
 
 </style>
@@ -159,14 +168,11 @@ footer {
     Bordplasseringen er klar. Søk etter navn for å finne bordet ditt.
   </p>
 
-  <input
+<input
     type="text"
     id="guestName"
-    placeholder="Fornavn og etternavn">
-
-  <button type="button" onclick="findGuest()">
-    Finn plassen min
-  </button>
+    placeholder="Søk etter navn..."
+    onkeyup="findGuest()">
 
   <div id="guestResult"></div>
 
@@ -339,9 +345,43 @@ function findGuest(){
 
     const guest = matches[0];
 
-    result.innerHTML =
-    `<h3>${guest.fullName}</h3>
-     <p>Du sitter på bord <strong>${guest.table}</strong></p>`;
+const sameTable =
+  guests.filter(
+    g => g.table === guest.table
+  );
+
+let guestList = "";
+
+sameTable.forEach(person => {
+
+    guestList += `
+    <li>${person.fullName}</li>
+    `;
+
+});
+
+result.innerHTML =
+
+`
+<div class="result-card">
+
+    <h3>👤 ${guest.fullName}</h3>
+
+    <p>
+      📍 Du sitter på
+      <strong>${guest.table}</strong>
+    </p>
+
+    <p>
+      👥 Du sitter sammen med:
+    </p>
+
+    <ul style="list-style:none;padding:0;">
+      ${guestList}
+    </ul>
+
+</div>
+`;
 
     if(
       guest.table.toLowerCase() === "bord 5"
@@ -363,6 +403,10 @@ const bord = document.getElementById(
 
 if(bord){
     bord.classList.add("highlight");
+  bord.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+});
 }
 
 }
