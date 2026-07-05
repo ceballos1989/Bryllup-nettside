@@ -161,35 +161,35 @@ footer {
 
     font-weight:bold;
 
-  #gaver{
+ .gift-link{
     text-align:center;
-    margin:60px auto;
-}
-
-#gaver p{
-    max-width:650px;
-    margin:20px auto 30px;
-    line-height:1.7;
-    color:#666;
+    margin:20px 0 10px;
 }
 
 .gift-button{
-    display:inline-block;
-    background:#8c4949;
-    color:white;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 22px;
+
+    background:#ffffff;
+    color:#8c4949;
+
+    border:2px solid #8c4949;
+    border-radius:30px;
+
     text-decoration:none;
-    padding:15px 32px;
-    border-radius:50px;
-    font-size:1.05rem;
+    font-size:0.95rem;
     font-weight:600;
+
     transition:all .25s ease;
-    box-shadow:0 6px 15px rgba(0,0,0,.12);
 }
 
 .gift-button:hover{
-    background:#733b3b;
+    background:#8c4949;
+    color:#fff;
     transform:translateY(-2px);
-    box-shadow:0 10px 20px rgba(0,0,0,.18);
 }
   
 }
@@ -237,15 +237,15 @@ footer {
   <p><i class="fas fa-user-tie"></i> <strong>Kleskode:</strong> Pent</p>
 
   <p><i class="fas fa-gift"></i> <strong>Gaver:</strong> Vi setter pris på gaver, primært ønsker vi oss et bidrag til vår bryllupsreise. Kontonummer: 6580.49.19494. Gaveønsker finner du på Tilbords, "Sara og Kristoffer 08.08.2026" eller ved å trykke på knappen under.</p>
-  <section id="gaver">
-    <h2>🎁 Gaveønsker</h2>
-    
+<div class="gift-link">
+
     <a href="https://www.tilbords.no/onskeliste/182777/"
        target="_blank"
        class="gift-button">
-        Se våre gaveønsker
+        🎁 Se ønskelisten hos Tilbords
     </a>
-  </section>
+
+</div>
   
   <p><span class="icon"><i class="fas fa-phone"></i></span><strong> Kontakt:</strong> For spørsmål, ta kontakt med oss:</p>
   <ul>
